@@ -1,0 +1,4 @@
+Testsuite: org.simpleframework.http.core.ReactorTest
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.825 sec
+
+Testcase: testHandler took 0.822 sec

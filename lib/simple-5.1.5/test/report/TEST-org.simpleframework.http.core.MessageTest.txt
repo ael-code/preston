@@ -1,0 +1,5 @@
+Testsuite: org.simpleframework.http.core.MessageTest
+Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
+
+Testcase: testMessage took 0.006 sec
+Testcase: testDates took 0.006 sec

@@ -1,0 +1,5 @@
+Testsuite: org.simpleframework.util.buffer.BufferAllocatorTest
+Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
+
+Testcase: testBuffer took 0.006 sec
+Testcase: testCascadingBufferAllocator took 0 sec

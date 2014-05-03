@@ -1,0 +1,6 @@
+Testsuite: org.simpleframework.http.parse.QueryParserTest
+Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
+
+Testcase: testEmptyPath took 0.003 sec
+Testcase: testValue took 0.001 sec
+Testcase: testValueList took 0 sec

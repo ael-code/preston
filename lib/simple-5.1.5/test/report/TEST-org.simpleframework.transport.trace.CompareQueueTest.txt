@@ -1,0 +1,9 @@
+Testsuite: org.simpleframework.transport.trace.CompareQueueTest
+Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 22.962 sec
+------------- Standard Error -----------------
+read=6,949,331 write=9,342,700
+read=27,131,050 write=27,940,630
+------------- ---------------- ---------------
+
+Testcase: testLinkedBlockingQueue took 11.031 sec
+Testcase: testConcurrentQueue took 11.929 sec

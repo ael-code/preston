@@ -1,0 +1,7 @@
+Testsuite: org.simpleframework.transport.BufferCompacterTest
+Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.012 sec
+
+Testcase: testOrder took 0.005 sec
+Testcase: testSegmentClose took 0 sec
+Testcase: testCompact took 0 sec
+Testcase: testNulls took 0.002 sec

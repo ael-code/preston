@@ -1,0 +1,13 @@
+org.simpleframework.http
+org.simpleframework.http.core
+org.simpleframework.http.message
+org.simpleframework.http.parse
+org.simpleframework.transport
+org.simpleframework.transport.connect
+org.simpleframework.transport.reactor
+org.simpleframework.transport.trace
+org.simpleframework.util
+org.simpleframework.util.buffer
+org.simpleframework.util.lease
+org.simpleframework.util.parse
+org.simpleframework.util.thread

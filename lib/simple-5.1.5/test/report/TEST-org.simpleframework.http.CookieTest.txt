@@ -1,0 +1,13 @@
+Testsuite: org.simpleframework.http.CookieTest
+Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.013 sec
+------------- Standard Error -----------------
+JSESSIONID=XXX; version=1; path=/path; expires=Mon, 08-Jul-2013 13:30:05 GMT; max-age=10
+JSESSIONID=XXX; version=1; path=/path
+JSESSIONID=XXX; version=1; path=/path; expires=Mon, 08-Jul-2013 13:30:05 GMT; max-age=10; secure
+JSESSIONID=XXX; version=1; path=/path; expires=Mon, 08-Jul-2013 13:30:05 GMT; max-age=10; httponly
+JSESSIONID=XXX; version=1; path=/path; expires=Mon, 08-Jul-2013 13:30:05 GMT; max-age=10; secure; httponly
+------------- ---------------- ---------------
+
+Testcase: testCookies took 0.01 sec
+Testcase: testCookieWithoutExpiry took 0 sec
+Testcase: testSecureCookies took 0.002 sec

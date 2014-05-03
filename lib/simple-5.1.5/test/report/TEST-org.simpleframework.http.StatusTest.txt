@@ -1,0 +1,4 @@
+Testsuite: org.simpleframework.http.StatusTest
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.026 sec
+
+Testcase: testStatus took 0.023 sec

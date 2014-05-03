@@ -1,0 +1,9 @@
+Testsuite: org.simpleframework.http.parse.ContentTypeParserTest
+Tests run: 6, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
+
+Testcase: testEmpty took 0.002 sec
+Testcase: testPlain took 0 sec
+Testcase: testCharset took 0 sec
+Testcase: testIgnore took 0.002 sec
+Testcase: testFlexibility took 0 sec
+Testcase: testString took 0 sec

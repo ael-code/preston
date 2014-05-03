@@ -1,0 +1,26 @@
+Testsuite: org.simpleframework.http.core.ProducerExceptionTest
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.003 sec
+------------- Standard Error -----------------
+org.simpleframework.http.core.ProducerException: Wrapper
+	at org.simpleframework.http.core.ProducerExceptionTest.testException(ProducerExceptionTest.java:14)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at junit.framework.TestCase.runTest(TestCase.java:154)
+	at junit.framework.TestCase.runBare(TestCase.java:127)
+	at junit.framework.TestResult$1.protect(TestResult.java:106)
+	at junit.framework.TestResult.runProtected(TestResult.java:124)
+	at junit.framework.TestResult.run(TestResult.java:109)
+	at junit.framework.TestCase.run(TestCase.java:118)
+	at junit.framework.TestSuite.runTest(TestSuite.java:208)
+	at junit.framework.TestSuite.run(TestSuite.java:203)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:518)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1052)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:906)
+Caused by: java.io.IOException: Error
+	at org.simpleframework.http.core.ProducerExceptionTest.testException(ProducerExceptionTest.java:11)
+	... 15 more
+------------- ---------------- ---------------
+
+Testcase: testException took 0.002 sec

@@ -1,0 +1,13 @@
+Testsuite: org.simpleframework.http.core.RequestConsumerTest
+Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 1.666 sec
+------------- Standard Error -----------------
+/index.html time=981
+/tmp/amazon_files/21lP7I1XB5L.jpg time=135
+/tmp/amazon_files/in-your-city-blue-large._V256095983_.gif time=83
+/tmp/amazon_files/narrowtimer_transparent._V47062518_.gif time=78
+time=381
+------------- ---------------- ---------------
+
+Testcase: testPerformance took 1.28 sec
+Testcase: testHeader took 0.382 sec
+Testcase: testDribble took 0.001 sec

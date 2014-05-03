@@ -1,0 +1,4 @@
+Testsuite: org.simpleframework.http.core.QueryBuilderTest
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.017 sec
+
+Testcase: testBuilder took 0.015 sec

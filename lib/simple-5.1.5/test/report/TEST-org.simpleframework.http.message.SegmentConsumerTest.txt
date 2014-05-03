@@ -1,0 +1,6 @@
+Testsuite: org.simpleframework.http.message.SegmentConsumerTest
+Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.023 sec
+
+Testcase: testHeader took 0.017 sec
+Testcase: testEmptyHeader took 0.001 sec
+Testcase: testDribble took 0.001 sec

@@ -1,0 +1,8 @@
+Testsuite: org.simpleframework.http.parse.CookieParserTest
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.009 sec
+------------- Standard Output ---------------
+$Version=1; blackbird={"pos": 1, "size": 0, "load": null}; $Path=/
+$Version=1; JSESSIONID=31865d30-e252-4729-ac6f-9abdd1fb9071; $Path=/
+------------- ---------------- ---------------
+
+Testcase: testParse took 0.008 sec

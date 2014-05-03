@@ -1,0 +1,9 @@
+Testsuite: org.simpleframework.http.core.ReactorProcessorTest
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 8.351 sec
+------------- Standard Error -----------------
+MINIMAL total=[752.0] for=[20000.0] average=[0.1575] time-per-request=[0.0376] request-per-millisecond=[27.595744680851062] request-per-second=[26595.744680851065]
+SIMPLE total=[1770.0] for=[20000.0] average=[674.7639] time-per-request=[0.0885] request-per-millisecond=[12.299435028248588] request-per-second=[11299.435028248587]
+UPLOAD total=[5807.0] for=[20000.0] average=[2642.8536] time-per-request=[0.29035] request-per-millisecond=[4.444119166523162] request-per-second=[3444.1191665231613]
+------------- ---------------- ---------------
+
+Testcase: testMinimal took 8.349 sec

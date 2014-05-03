@@ -1,0 +1,6 @@
+Testsuite: org.simpleframework.http.message.FileUploadConsumerTest
+Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.034 sec
+
+Testcase: testNoFinalCRLF took 0.022 sec
+Testcase: testNoFinalCRLSWithDribble took 0.007 sec
+Testcase: testNoFinalCRLSWithDribble3 took 0.003 sec

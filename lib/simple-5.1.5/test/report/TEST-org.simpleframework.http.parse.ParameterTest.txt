@@ -1,0 +1,6 @@
+Testsuite: org.simpleframework.http.parse.ParameterTest
+Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
+
+Testcase: testEmptyPath took 0.002 sec
+Testcase: testValue took 0 sec
+Testcase: testValueList took 0 sec

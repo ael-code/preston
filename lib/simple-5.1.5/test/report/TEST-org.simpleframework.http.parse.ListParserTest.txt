@@ -1,0 +1,10 @@
+Testsuite: org.simpleframework.http.parse.ListParserTest
+Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.008 sec
+
+Testcase: testEmpty took 0.002 sec
+Testcase: testQvalue took 0.001 sec
+Testcase: testPlain took 0 sec
+Testcase: testList took 0.002 sec
+Testcase: testOrder took 0 sec
+Testcase: testRange took 0 sec
+Testcase: testFlexibility took 0 sec

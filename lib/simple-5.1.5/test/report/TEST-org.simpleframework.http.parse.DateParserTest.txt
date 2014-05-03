@@ -1,0 +1,10 @@
+Testsuite: org.simpleframework.http.parse.DateParserTest
+Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.109 sec
+------------- Standard Output ---------------
+value a: 1295541788000
+value b: 1295541788000
+value c: 1295541788000
+------------- ---------------- ---------------
+
+Testcase: testDate took 0.004 sec
+Testcase: testLong took 0.103 sec

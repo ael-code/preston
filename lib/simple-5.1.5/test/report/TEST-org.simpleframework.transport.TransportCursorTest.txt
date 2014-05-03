@@ -1,0 +1,4 @@
+Testsuite: org.simpleframework.transport.TransportCursorTest
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.005 sec
+
+Testcase: testCursor took 0.004 sec
