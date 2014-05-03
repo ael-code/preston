@@ -9,7 +9,7 @@ import org.simpleframework.http.Response;
 import org.simpleframework.http.Status;
 import org.simpleframework.http.core.Container;
 
-import preston.json.JSONObject;
+import preston.lib.json.JSONObject;
 import preston.moduleTree.ModuleTreeLeaf;
 import preston.moduleTree.ModuleTreeNode;
 import preston.moduleTree.exceptions.ModuleNotFoundException;

@@ -22,5 +22,7 @@ public class Main{
 		
 		MeminfoModule meminfo = new MeminfoModule("meminfo", "/proc/meminfo");
 		server.addModule("/sysinfo/", meminfo);
+		
+		server.start();
 	}
 }

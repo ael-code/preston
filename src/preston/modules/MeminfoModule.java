@@ -5,8 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import preston.json.JSONObject;
-
+import preston.lib.json.JSONObject;
 import preston.moduleTree.ModuleTreeLeaf;
 
 public class MeminfoModule extends ModuleTreeLeaf{
