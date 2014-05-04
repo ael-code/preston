@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 import org.json.JSONObject;
 import org.simpleframework.http.Query;
@@ -14,9 +16,9 @@ import preston.moduleTree.ModuleTreeLeaf;
 public class CpuinfoModule extends ModuleTreeLeaf{
 	private static final String DEFAULT_PATH = "/proc/cpuinfo";
 	private static final String BASENAME_CPU = "cpu";
-	//private static final String[] VALUES = {"MemTotal","MemFree","MemAvailable","SwapTotal","SwapFree"};
+	private static final String[] VALUES = {"processor","vendor_id","model name","cpu MHz","cache size","core id","cpu cores","cache_alignment"};
 	
-	//private List<String> valuesColl;
+	private List<String> valuesColl;
 	
 	private String file;
 	
@@ -27,7 +29,7 @@ public class CpuinfoModule extends ModuleTreeLeaf{
 		super(name);
 		if(!(new File(file)).canRead()){throw new RuntimeException("\""+file+"\" doesn't exist or permission error occurred");}
 		this.file = file;
-		//valuesColl = Arrays.asList(VALUES);
+		valuesColl = Arrays.asList(VALUES);
 	}
 	@Override
 	public Object generateResponse(Query query) {
@@ -48,7 +50,7 @@ public class CpuinfoModule extends ModuleTreeLeaf{
 					key = BASENAME_CPU+"_"+splitted[1];
 					temp = new JSONObject();
 				}
-				if(temp != null) temp.accumulate(splitted[0],splitted[1]);
+				if(temp != null && valuesColl.contains(splitted[0])) temp.accumulate(splitted[0],splitted[1]);
 			}
 			if(temp!=null){
 				result.accumulate(key, temp);
