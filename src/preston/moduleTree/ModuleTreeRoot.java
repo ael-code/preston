@@ -1,6 +1,8 @@
 package preston.moduleTree;
 
 import org.json.JSONObject;
+import org.simpleframework.http.Query;
+
 import preston.moduleTree.exceptions.ModuleNotFoundException;
 import preston.moduleTree.exceptions.ModuleNullReturnException;
 import preston.moduleTree.exceptions.PathFormatException;
@@ -12,7 +14,7 @@ public class ModuleTreeRoot extends ModuleTreeNode{
 	}
 	
 	@Override
-	public void getResponse(JSONObject jsonObj, String reqPath, String options) 
+	public void getResponse(JSONObject jsonObj, String reqPath, Query query) 
 			throws ModuleNotFoundException, ModuleNullReturnException, PathFormatException{
 		if(jsonObj == null ) throw new NullPointerException("JSONObject cannot be null");
 		if(reqPath == null ) throw new NullPointerException("Path parameter cannot be null");
@@ -21,7 +23,7 @@ public class ModuleTreeRoot extends ModuleTreeNode{
 		String normalizedPath = PathUtils.addFinalSlash(reqPath);
 		if(normalizedPath.length()<3) throw new PathFormatException();
 		//System.out.println("@ requestedPath: "+reqPath+"\n@ normalizedPath: "+"/root"+normalizedPath);
-		super.getResponse(jsonObj, "/root"+normalizedPath,options);
+		super.getResponse(jsonObj, "/root"+normalizedPath,query);
 	}
 	
 	@Override

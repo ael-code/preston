@@ -8,6 +8,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.json.JSONObject;
+import org.simpleframework.http.Query;
+
 import preston.moduleTree.ModuleTreeLeaf;
 
 public class MeminfoModule extends ModuleTreeLeaf{
@@ -27,7 +29,7 @@ public class MeminfoModule extends ModuleTreeLeaf{
 	}
 
 	@Override
-	public Object generateResponse(String options) {
+	public Object generateResponse(Query query) {
 		JSONObject result = new JSONObject();
 		try {
 			BufferedReader br = new BufferedReader( new FileReader(file));

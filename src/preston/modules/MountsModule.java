@@ -7,6 +7,8 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import org.json.JSONObject;
+import org.simpleframework.http.Query;
+
 import preston.moduleTree.ModuleTreeLeaf;
 
 public class MountsModule extends ModuleTreeLeaf {
@@ -24,7 +26,7 @@ public class MountsModule extends ModuleTreeLeaf {
 		this.file = file;
 	}
 	@Override
-	public Object generateResponse(String options) {
+	public Object generateResponse(Query query) {
 		JSONObject result = new JSONObject();
 		try {
 			BufferedReader br = new BufferedReader( new FileReader(file));

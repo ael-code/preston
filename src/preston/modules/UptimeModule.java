@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import org.simpleframework.http.Query;
+
 import preston.moduleTree.ModuleTreeLeaf;
 
 public class UptimeModule extends ModuleTreeLeaf{
@@ -20,7 +22,7 @@ public class UptimeModule extends ModuleTreeLeaf{
 	}
 
 	@Override
-	public String generateResponse(String options) {
+	public String generateResponse(Query query) {
 		String result = null;
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(file));

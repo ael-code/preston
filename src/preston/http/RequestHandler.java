@@ -5,10 +5,12 @@ import java.io.PrintStream;
 import java.net.InetSocketAddress;
 
 import org.json.JSONObject;
+import org.simpleframework.http.Query;
 import org.simpleframework.http.Request;
 import org.simpleframework.http.Response;
 import org.simpleframework.http.Status;
 import org.simpleframework.http.core.Container;
+
 import preston.moduleTree.ModuleTreeLeaf;
 import preston.moduleTree.ModuleTreeRoot;
 import preston.moduleTree.exceptions.ModuleNotFoundException;
@@ -40,8 +42,8 @@ public class RequestHandler implements Container{
 		    
 		    JSONObject result = new JSONObject();
 		    String reqPath = req.getPath().getPath();
-		    
-		    rootNode.getResponse(result, reqPath, null);
+		    Query query = req.getQuery();
+		    rootNode.getResponse(result, reqPath, query);
 		    
 		    body.println(result.toString(3));
 		    body.close();

@@ -1,6 +1,8 @@
 package preston.moduleTree;
 
 import org.json.JSONObject;
+import org.simpleframework.http.Query;
+
 import preston.moduleTree.exceptions.ModuleNotFoundException;
 import preston.moduleTree.exceptions.ModuleNullReturnException;
 import preston.moduleTree.exceptions.PathFormatException;
@@ -16,6 +18,6 @@ public abstract class ModuleTree{
 		return name;
 	}
 	
-	public abstract void getResponse(JSONObject jsonObj, String reqPath, String options) 
+	public abstract void getResponse(JSONObject jsonObj, String reqPath, Query query) 
 			throws ModuleNotFoundException, ModuleNullReturnException, PathFormatException;
 }

@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.json.JSONObject;
+import org.simpleframework.http.Query;
+
 import preston.moduleTree.exceptions.ModuleNotFoundException;
 import preston.moduleTree.exceptions.ModuleNullReturnException;
 import preston.moduleTree.exceptions.PathFormatException;
@@ -21,7 +23,7 @@ public class ModuleTreeNode extends ModuleTree{
 		return childs.values();
 	}
 	
-	public void getResponse(JSONObject jsonObj, String reqPath,String options) 
+	public void getResponse(JSONObject jsonObj, String reqPath,Query query) 
 			throws ModuleNotFoundException, ModuleNullReturnException, PathFormatException{
 		//System.out.println(name);
 		
@@ -34,7 +36,7 @@ public class ModuleTreeNode extends ModuleTree{
 			JSONObject jsonTemp = new JSONObject();
 			
 			for (ModuleTree child : childs.values()){
-				child.getResponse(jsonTemp, '/'+child.getName()+'/',options);
+				child.getResponse(jsonTemp, '/'+child.getName()+'/',query);
 			}
 			jsonObj.accumulate(name, jsonTemp);
 			return;
@@ -43,7 +45,7 @@ public class ModuleTreeNode extends ModuleTree{
 		String nextPath = PathUtils.trimRoot(reqPath);
 		ModuleTree nextModule = childs.get(PathUtils.getRoot(nextPath));
 		if(nextModule == null) throw new ModuleNotFoundException();
-		nextModule.getResponse(jsonObj, nextPath,options);
+		nextModule.getResponse(jsonObj, nextPath,query);
 	}
 	
 	private void addChild(ModuleTree child){

@@ -2,6 +2,7 @@ import preston.http.Server;
 import preston.moduleTree.exceptions.PathFormatException;
 import preston.modules.MeminfoModule;
 import preston.modules.MountsModule;
+import preston.modules.QueryExampleModule;
 import preston.modules.UptimeModule;
 
 
@@ -17,6 +18,8 @@ public class MainExample{
 		
 		MountsModule mounts = new MountsModule("mounts");
 		server.addModule("/data/sysinfo/", mounts);
+		
+		server.addModule("/example/", new QueryExampleModule("queryExample"));
 		
 		server.start();		
 	}
