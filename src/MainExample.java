@@ -6,10 +6,8 @@ import preston.modules.UptimeModule;
 
 
 public class MainExample{
-	static final int PORT = 4445;
-	
 	public static void main(String[] args) throws PathFormatException{
-		Server server = new Server(PORT);
+		Server server = new Server();
 		
 		UptimeModule uptime = new UptimeModule("uptime");
 		server.addModule("/data/sysinfo/", uptime);
