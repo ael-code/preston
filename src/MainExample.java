@@ -21,6 +21,6 @@ public class MainExample{
 		
 		server.addModule("/example/", new QueryExampleModule("queryExample"));
 		
-		server.start();		
+		server.start();
 	}
 }
