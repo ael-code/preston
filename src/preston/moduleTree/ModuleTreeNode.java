@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import preston.lib.json.JSONObject;
+import org.json.JSONObject;
 import preston.moduleTree.exceptions.ModuleNotFoundException;
 import preston.moduleTree.exceptions.ModuleNullReturnException;
 import preston.moduleTree.exceptions.PathFormatException;

@@ -7,7 +7,6 @@ import java.net.SocketAddress;
 import org.simpleframework.http.core.ContainerServer;
 import org.simpleframework.transport.connect.Connection;
 import org.simpleframework.transport.connect.SocketConnection;
-
 import preston.moduleTree.ModuleTreeLeaf;
 import preston.moduleTree.exceptions.PathFormatException;
 
@@ -32,7 +31,7 @@ public class Server {
 	public void start(){
 		org.simpleframework.transport.Server server;
 		try {
-			server = new ContainerServer(reqHandler);
+			server = (org.simpleframework.transport.Server) new ContainerServer(reqHandler);
 			@SuppressWarnings("resource")
 			Connection connection = new SocketConnection(server);
 		    SocketAddress address = new InetSocketAddress(port);

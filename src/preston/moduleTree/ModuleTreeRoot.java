@@ -1,6 +1,6 @@
 package preston.moduleTree;
 
-import preston.lib.json.JSONObject;
+import org.json.JSONObject;
 import preston.moduleTree.exceptions.ModuleNotFoundException;
 import preston.moduleTree.exceptions.ModuleNullReturnException;
 import preston.moduleTree.exceptions.PathFormatException;

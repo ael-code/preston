@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import preston.lib.json.JSONObject;
+import org.json.JSONObject;
 import preston.moduleTree.ModuleTreeLeaf;
 
 public class CpuinfoModule extends ModuleTreeLeaf{

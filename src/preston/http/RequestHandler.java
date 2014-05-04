@@ -4,12 +4,11 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.net.InetSocketAddress;
 
+import org.json.JSONObject;
 import org.simpleframework.http.Request;
 import org.simpleframework.http.Response;
 import org.simpleframework.http.Status;
 import org.simpleframework.http.core.Container;
-
-import preston.lib.json.JSONObject;
 import preston.moduleTree.ModuleTreeLeaf;
 import preston.moduleTree.ModuleTreeRoot;
 import preston.moduleTree.exceptions.ModuleNotFoundException;
@@ -26,7 +25,6 @@ public class RequestHandler implements Container{
 	public void addModule(String path,ModuleTreeLeaf module) throws PathFormatException{
 		rootNode.addModule(path, module);
 	}
-	
 	@Override
 	public void handle(Request req, Response resp) {
 		try {

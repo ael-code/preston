@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import preston.lib.json.JSONObject;
+import org.json.JSONObject;
 import preston.moduleTree.ModuleTreeLeaf;
 
 public class MeminfoModule extends ModuleTreeLeaf{
