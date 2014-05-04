@@ -17,7 +17,7 @@ public class Server {
 	private RequestHandler reqHandler;
 	
 	public Server(){
-		port = 4445;
+		this(DEFAULT_PORT);
 	}
 	public Server(int port){
 		this.port = port;

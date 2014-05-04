@@ -18,9 +18,7 @@ public class MeminfoModule extends ModuleTreeLeaf{
 	private List<String> valuesColl;
 	
 	public MeminfoModule(String name) {
-		super(name);
-		this.file = DEFAULT_PATH;
-		valuesColl = Arrays.asList(VALUES);
+		this(name,DEFAULT_PATH);
 	}
 	public MeminfoModule(String name, String file) {
 		super(name);

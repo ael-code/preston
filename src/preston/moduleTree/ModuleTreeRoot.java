@@ -27,8 +27,8 @@ public class ModuleTreeRoot extends ModuleTreeNode{
 	@Override
 	public void addModule(String path, ModuleTreeLeaf leafModule)
 			throws PathFormatException {
-		if(leafModule == null) throw new NullPointerException("ModuleTreeLeaf cannot be null");
-		if(path == null) throw new NullPointerException("path string cannot be null");
+		if(leafModule == null){throw new NullPointerException("ModuleTreeLeaf cannot be null");}
+		if(path == null){throw new NullPointerException("path string cannot be null");}
 		String normalizedPath = PathUtils.addFinalSlash(path);
 		if(normalizedPath.length()<3) throw new PathFormatException();
 		super.addModule(path, leafModule);

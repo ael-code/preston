@@ -14,8 +14,7 @@ public class CpuinfoModule extends ModuleTreeLeaf{
 	private String file;
 	
 	public CpuinfoModule(String name) {
-		super(name);
-		this.file = DEFAULT_PATH;
+		this(name,DEFAULT_PATH);
 	}
 	public CpuinfoModule(String name, String file) {
 		super(name);

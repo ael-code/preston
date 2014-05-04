@@ -17,8 +17,7 @@ public class MountsModule extends ModuleTreeLeaf {
 	private String file;
 	
 	public MountsModule(String name) {
-		super(name);
-		this.file = DEFAULT_PATH;
+		this(name,DEFAULT_PATH);
 	}
 	public MountsModule(String name, String file) {
 		super(name);
