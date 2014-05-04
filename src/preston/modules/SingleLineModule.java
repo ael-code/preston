@@ -17,7 +17,7 @@ public class SingleLineModule extends ModuleTreeLeaf{
 	}
 	
 	@Override
-	protected String generateResponse() {
+	public String generateResponse(String options) {
 		String temp = null;
 		try {
 			BufferedReader br = new BufferedReader( new FileReader(file));

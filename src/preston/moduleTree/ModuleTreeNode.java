@@ -21,12 +21,12 @@ public class ModuleTreeNode extends ModuleTree{
 		return childs.values();
 	}
 	
-	public void getResponse(JSONObject jsonObj, String reqPath) 
-			throws ModuleNotFoundException, ModuleNullReturnException{
-		//System.out.println("node "+name);
+	public void getResponse(JSONObject jsonObj, String reqPath,String options) 
+			throws ModuleNotFoundException, ModuleNullReturnException, PathFormatException{
+		//System.out.println(name);
 		
-		String rootPath = PathUtils.getRoot(reqPath);
-		if(rootPath == null || ! rootPath.equals(name)){ 
+		String firstElementPath = PathUtils.getRoot(reqPath);
+		if(firstElementPath == null || ! firstElementPath.equals(name)){ 
 			throw new ModuleNotFoundException();
 		}
 		
@@ -34,7 +34,7 @@ public class ModuleTreeNode extends ModuleTree{
 			JSONObject jsonTemp = new JSONObject();
 			
 			for (ModuleTree child : childs.values()){
-				child.getResponse(jsonTemp, '/'+child.getName()+'/');
+				child.getResponse(jsonTemp, '/'+child.getName()+'/',options);
 			}
 			jsonObj.accumulate(name, jsonTemp);
 			return;
@@ -43,7 +43,7 @@ public class ModuleTreeNode extends ModuleTree{
 		String nextPath = PathUtils.trimRoot(reqPath);
 		ModuleTree nextModule = childs.get(PathUtils.getRoot(nextPath));
 		if(nextModule == null) throw new ModuleNotFoundException();
-		nextModule.getResponse(jsonObj, nextPath);
+		nextModule.getResponse(jsonObj, nextPath,options);
 	}
 	
 	private void addChild(ModuleTree child){
@@ -51,6 +51,7 @@ public class ModuleTreeNode extends ModuleTree{
 	}
 	
 	public void addModule(String path, ModuleTreeLeaf leafModule) throws PathFormatException{
+		//System.out.println("adding \""+leafModule.getName()+"\" to \""+name+"\" with path \""+path+"\"");
 		String rootPath = PathUtils.getRoot(path);
 		if(rootPath == null) throw new PathFormatException();
 		

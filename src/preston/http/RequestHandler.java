@@ -11,16 +11,16 @@ import org.simpleframework.http.core.Container;
 
 import preston.lib.json.JSONObject;
 import preston.moduleTree.ModuleTreeLeaf;
-import preston.moduleTree.ModuleTreeNode;
+import preston.moduleTree.ModuleTreeRoot;
 import preston.moduleTree.exceptions.ModuleNotFoundException;
 import preston.moduleTree.exceptions.ModuleNullReturnException;
 import preston.moduleTree.exceptions.PathFormatException;
 
 public class RequestHandler implements Container{
-	private ModuleTreeNode rootNode;
+	private ModuleTreeRoot rootNode;
 	
 	public RequestHandler() {
-		rootNode = new ModuleTreeNode("data");
+		rootNode = new ModuleTreeRoot();
 	}
 	
 	public void addModule(String path,ModuleTreeLeaf module) throws PathFormatException{
@@ -43,7 +43,7 @@ public class RequestHandler implements Container{
 		    JSONObject result = new JSONObject();
 		    String reqPath = req.getPath().getPath();
 		    
-		    rootNode.getResponse(result, reqPath);
+		    rootNode.getResponse(result, reqPath, null);
 		    
 		    body.println(result.toString(3));
 		    body.close();
@@ -57,6 +57,10 @@ public class RequestHandler implements Container{
 		} catch (ModuleNullReturnException e) {
 			System.err.println(e.getMessage());
 			handleInternalServerError(resp);
+			e.printStackTrace();
+		} catch (PathFormatException e) {
+			System.err.println(e.getMessage());
+			handleMethodNotAllowed(resp);
 			e.printStackTrace();
 		}
 	}

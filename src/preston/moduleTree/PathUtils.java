@@ -30,4 +30,10 @@ public class PathUtils {
 		//System.out.println("trimRoot() [ "+path+" ] to [ "+path.substring(path.indexOf('/', 1))+" ]");
 		return path.substring(path.indexOf('/', 1));
 	}
+
+	public static String addFinalSlash(String reqPath) {
+		if(reqPath.charAt(reqPath.length()-1) != '/')
+			return reqPath + '/';
+		return reqPath;
+	}
 }

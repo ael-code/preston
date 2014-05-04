@@ -3,6 +3,7 @@ package preston.moduleTree;
 import preston.lib.json.JSONObject;
 import preston.moduleTree.exceptions.ModuleNotFoundException;
 import preston.moduleTree.exceptions.ModuleNullReturnException;
+import preston.moduleTree.exceptions.PathFormatException;
 
 public abstract class ModuleTreeLeaf extends ModuleTree{
 	
@@ -11,11 +12,12 @@ public abstract class ModuleTreeLeaf extends ModuleTree{
 	}
 	
 	@Override
-	public void getResponse(JSONObject jsonObj, String reqPath)	throws ModuleNotFoundException, ModuleNullReturnException {
-		Object response = generateResponse();
+	public void getResponse(JSONObject jsonObj, String reqPath,String options)	
+			throws ModuleNotFoundException, ModuleNullReturnException, PathFormatException {
+		Object response = generateResponse(options);
 		if(response == null) throw new ModuleNullReturnException();
 		jsonObj.accumulate(name, response);
 	}
 	
-	protected abstract Object generateResponse();
+	public abstract Object generateResponse(String options);
 }

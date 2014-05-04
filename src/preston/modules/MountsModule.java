@@ -1,33 +1,29 @@
 package preston.modules;
 
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
 import preston.lib.json.JSONObject;
 import preston.moduleTree.ModuleTreeLeaf;
 
-public class MeminfoModule extends ModuleTreeLeaf{
-	private static final String[] VALUES = {"MemTotal","MemFree","MemAvailable","SwapTotal","SwapFree"};
-	private static final String DEFAULT_PATH = "/proc/meminfo";
+public class MountsModule extends ModuleTreeLeaf {
+	/* Device MounPoint FileSystem Options Dump Pass */
+	
+	private static final String DEFAULT_PATH = "/proc/mounts";
 	
 	private String file;
-	private List<String> valuesColl;
 	
-	public MeminfoModule(String name) {
+	public MountsModule(String name) {
 		super(name);
 		this.file = DEFAULT_PATH;
-		valuesColl = Arrays.asList(VALUES);
 	}
-	public MeminfoModule(String name, String file) {
+	public MountsModule(String name, String file) {
 		super(name);
 		this.file = file;
-		valuesColl = Arrays.asList(VALUES);
 	}
-
 	@Override
 	public Object generateResponse(String options) {
 		JSONObject result = new JSONObject();
@@ -35,10 +31,11 @@ public class MeminfoModule extends ModuleTreeLeaf{
 			BufferedReader br = new BufferedReader( new FileReader(file));
 			String line;
 			while((line = br.readLine()) != null){
-				
-				String[] splitted = line.split("(:*\\s+)");
-				if(valuesColl.contains(splitted[0]))
-					result.put(splitted[0], splitted[1]);
+				if(line.charAt(0) != '/') continue;
+				String[] splitted = line.split("\\s+", 6);
+				for (int i = 1; i < splitted.length; i++) {
+					result.accumulate(splitted[0], splitted[i]);
+				}			
 			}
 			br.close();		
 		} catch (FileNotFoundException e1) {
@@ -47,10 +44,7 @@ public class MeminfoModule extends ModuleTreeLeaf{
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
-		} catch (ArrayIndexOutOfBoundsException e) {
-			e.printStackTrace();
 		}
 		return result;
 	}
-	
 }
