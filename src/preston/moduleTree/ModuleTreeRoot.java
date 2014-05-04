@@ -31,7 +31,7 @@ public class ModuleTreeRoot extends ModuleTreeNode{
 		if(path == null){throw new NullPointerException("path string cannot be null");}
 		String normalizedPath = PathUtils.addFinalSlash(path);
 		if(normalizedPath.length()<3) throw new PathFormatException();
-		super.addModule(path, leafModule);
+		super.addModule(normalizedPath, leafModule);
 	}
 	
 }
