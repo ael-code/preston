@@ -1,25 +1,26 @@
 import preston.http.Server;
 import preston.moduleTree.exceptions.PathFormatException;
-import preston.modules.MeminfoModule;
-import preston.modules.MountsModule;
 import preston.modules.QueryExampleModule;
-import preston.modules.UptimeModule;
+import preston.modules.StringExampleModule;
 
 
 public class MainExample{
 	public static void main(String[] args) throws PathFormatException{
-		Server server = new Server();
 		
-		UptimeModule uptime = new UptimeModule("uptime");
-		server.addModule("/data/sysinfo/", uptime);
+		Server server = new Server(4445);
 		
-		MeminfoModule meminfo = new MeminfoModule("meminfo");
-		server.addModule("/data/sysinfo/", meminfo);
+		StringExampleModule module1 = new StringExampleModule("module1","value1");
+		server.addModule("/folder1/folder1.1/", module1);
 		
-		MountsModule mounts = new MountsModule("mounts");
-		server.addModule("/data/sysinfo/", mounts);
+		StringExampleModule module2 = new StringExampleModule("module2","value2");
+		server.addModule("/folder1/folder1.2/", module2);
 		
-		server.addModule("/example/", new QueryExampleModule("queryExample"));
+		StringExampleModule module3 = new StringExampleModule("module3","value3");
+		server.addModule("/folder2/folder2.1/", module3);
+		
+		server.addModule("/folder3/folder3.1/", new QueryExampleModule("queryExample"));
+		
+		System.out.println("Installed Modules\n---------\n"+server.getTreeView().toString(3)+"\n---------\n");
 		
 		server.start();
 	}

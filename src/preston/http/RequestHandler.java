@@ -24,9 +24,6 @@ public class RequestHandler implements Container{
 		rootNode = new ModuleTreeRoot();
 	}
 	
-	public void addModule(String path,ModuleTreeLeaf module) throws PathFormatException{
-		rootNode.addModule(path, module);
-	}
 	@Override
 	public void handle(Request req, Response resp) {
 		try {
@@ -40,10 +37,14 @@ public class RequestHandler implements Container{
 		    resp.setDate("Date", time);
 		    resp.setDate("Last-Modified", time);
 		    
-		    JSONObject result = new JSONObject();
+		      
 		    String reqPath = req.getPath().getPath();
 		    Query query = req.getQuery();
-		    rootNode.getResponse(result, reqPath, query);
+		    JSONObject result = new JSONObject();
+	    	rootNode.getResponse(result, reqPath, query);
+	    	//hide root node
+	    	if(result.has("root"))
+	    		result = result.getJSONObject("root");
 		    
 		    body.println(result.toString(3));
 		    body.close();
@@ -57,10 +58,6 @@ public class RequestHandler implements Container{
 		} catch (ModuleNullReturnException e) {
 			System.err.println(e.getMessage());
 			handleInternalServerError(resp);
-			e.printStackTrace();
-		} catch (PathFormatException e) {
-			System.err.println(e.getMessage());
-			handleMethodNotAllowed(resp);
 			e.printStackTrace();
 		}
 	}
@@ -89,5 +86,19 @@ public class RequestHandler implements Container{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+
+	public void addModule(String path,ModuleTreeLeaf module) throws PathFormatException{
+		rootNode.addModule(path, module);
+	}
+	
+	public JSONObject getTreeView() {
+		JSONObject result = new JSONObject();
+		rootNode.getTreeView(result);
+		//hide root node
+		if(result.has("root"))
+    		result = result.getJSONObject("root");
+		return result;
 	}
 }

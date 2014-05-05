@@ -12,7 +12,8 @@ import preston.moduleTree.exceptions.ModuleNullReturnException;
 import preston.moduleTree.exceptions.PathFormatException;
 
 public class ModuleTreeNode extends ModuleTree{
-	private Map<String,ModuleTree> childs;
+	public static final String TREE_VIEW_PARAMETER = "treeView";
+	protected Map<String,ModuleTree> childs;
 	
 	public ModuleTreeNode(String name){
 		super(name);
@@ -24,7 +25,7 @@ public class ModuleTreeNode extends ModuleTree{
 	}
 	
 	public void getResponse(JSONObject jsonObj, String reqPath,Query query) 
-			throws ModuleNotFoundException, ModuleNullReturnException, PathFormatException{
+			throws ModuleNotFoundException, ModuleNullReturnException{
 		//System.out.println(name);
 		
 		String firstElementPath = PathUtils.getRoot(reqPath);
@@ -33,15 +34,18 @@ public class ModuleTreeNode extends ModuleTree{
 		}
 		
 		if(PathUtils.isLast(reqPath)){
-			JSONObject jsonTemp = new JSONObject();
-			
-			for (ModuleTree child : childs.values()){
-				child.getResponse(jsonTemp, '/'+child.getName()+'/',query);
+			if(query.getBoolean(TREE_VIEW_PARAMETER)){
+				this.getTreeView(jsonObj);
+			}else {
+				JSONObject jsonTemp = new JSONObject();
+				
+				for (ModuleTree child : childs.values()){
+					child.getResponse(jsonTemp, '/'+child.getName()+'/',query);
+				}
+				jsonObj.accumulate(name, jsonTemp);
 			}
-			jsonObj.accumulate(name, jsonTemp);
 			return;
 		}
-		
 		String nextPath = PathUtils.trimRoot(reqPath);
 		ModuleTree nextModule = childs.get(PathUtils.getRoot(nextPath));
 		if(nextModule == null) throw new ModuleNotFoundException();
@@ -70,5 +74,19 @@ public class ModuleTreeNode extends ModuleTree{
 			nextModule.addModule(nextPath, leafModule);
 		}
 	}
-	
+
+	public void getTreeView(JSONObject jsonObj) {
+		JSONObject temp = new JSONObject();
+		Boolean empty = true;
+		for (ModuleTree module : childs.values()) {
+			if(module instanceof ModuleTreeLeaf){
+				jsonObj.accumulate(this.name, module.name);
+			}else{
+				empty = false;
+				((ModuleTreeNode)module).getTreeView(temp);
+			}
+		}
+		if(!empty)
+			jsonObj.accumulate(name, temp);
+	}
 }

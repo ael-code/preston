@@ -5,7 +5,6 @@ import org.simpleframework.http.Query;
 
 import preston.moduleTree.exceptions.ModuleNotFoundException;
 import preston.moduleTree.exceptions.ModuleNullReturnException;
-import preston.moduleTree.exceptions.PathFormatException;
 
 public abstract class ModuleTreeLeaf extends ModuleTree{
 	
@@ -15,7 +14,7 @@ public abstract class ModuleTreeLeaf extends ModuleTree{
 	
 	@Override
 	public void getResponse(JSONObject jsonObj, String reqPath,Query query)	
-			throws ModuleNotFoundException, ModuleNullReturnException, PathFormatException {
+			throws ModuleNotFoundException, ModuleNullReturnException{
 		Object response = generateResponse(query);
 		if(response == null) throw new ModuleNullReturnException();
 		jsonObj.accumulate(name, response);

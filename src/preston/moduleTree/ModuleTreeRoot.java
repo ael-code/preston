@@ -15,13 +15,13 @@ public class ModuleTreeRoot extends ModuleTreeNode{
 	
 	@Override
 	public void getResponse(JSONObject jsonObj, String reqPath, Query query) 
-			throws ModuleNotFoundException, ModuleNullReturnException, PathFormatException{
+			throws ModuleNotFoundException, ModuleNullReturnException{
 		if(jsonObj == null ) throw new NullPointerException("JSONObject cannot be null");
 		if(reqPath == null ) throw new NullPointerException("Path parameter cannot be null");
-		//if last '/' is missing add it
 		
+		
+		//if last '/' is missing add it
 		String normalizedPath = PathUtils.addFinalSlash(reqPath);
-		if(normalizedPath.length()<3) throw new PathFormatException();
 		//System.out.println("@ requestedPath: "+reqPath+"\n@ normalizedPath: "+"/root"+normalizedPath);
 		super.getResponse(jsonObj, "/root"+normalizedPath,query);
 	}
@@ -34,6 +34,5 @@ public class ModuleTreeRoot extends ModuleTreeNode{
 		String normalizedPath = PathUtils.addFinalSlash(path);
 		if(normalizedPath.length()<3) throw new PathFormatException();
 		super.addModule(normalizedPath, leafModule);
-	}
-	
+	}	
 }
