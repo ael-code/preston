@@ -2,6 +2,7 @@ package preston.modules;
 
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -15,6 +16,7 @@ public class SingleLineModule extends ModuleTreeLeaf{
 	
 	public SingleLineModule(String name, String file) {
 		super(name);
+		if(!(new File(file)).canRead()){throw new RuntimeException("\""+file+"\" doesn't exist or permission error occurred");}
 		this.file = file;
 	}
 	
